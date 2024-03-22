@@ -55,8 +55,19 @@ title.id = 'title_blur';
 title.src = './assets/IMG/logo4.png'
 titleBox.appendChild(title);
 
+const searchContainer = document.createElement('section')
+searchContainer.id = 'search_container';
+mainContent.appendChild(searchContainer);
+
 const searchBar = document.createElement('input');
 searchBar.type = 'text';
 searchBar.placeholder = 'Cerca...';
 searchBar.className = 'search_bar'
-mainContent.appendChild(searchBar);
+searchContainer.appendChild(searchBar);
+
+const searchButton = document.createElement('button');
+searchButton.textContent = 'Cerca';
+searchButton.className = 'search_button';
+searchContainer.appendChild(searchButton);
+
+
