@@ -12,13 +12,17 @@
 <body>
     <img id="big_img" src="assets/IMG/background2.png" alt="backgroudnd image">
     <section id="container">
-        <div class="main_bar">
+        <div class="navbar">
+            <span class="icon_bar"></span>
+            <span class="icon_bar"></span>
+        </div>
+        <nav class="hide_menu">
             <ul class="menu">
                 <li>home</li>
                 <li>come funziona</li>
-                <li>open library</li>
+                <a href="https://openlibrary.org/"><li>open library</li></a>
             </ul>
-        </div>
+        </nav>
         <div id="title_box">
             <a href="index.html"><img id="title_blur" src="assets/IMG/logo4.png" alt="logo"></a>
         </div>
@@ -38,6 +42,7 @@
         </div>
     </section>
 
-    <script></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
