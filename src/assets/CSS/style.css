@@ -1,5 +1,8 @@
 body {
     background-color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 #big_img {
@@ -22,7 +25,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    border: 1px solid red;
+    background-color: rgba(29, 23, 23, 0.9);
 }
 
 .main_bar {
@@ -30,103 +33,107 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: rgba(19, 17, 17, 0.13);
-	backdrop-filter: blur(8px);
-    box-shadow: 0 0 36px rgba(8,7,16,0.6);
-    border: 1px solid red;
+    background: rgba(252, 3, 3);
+    box-shadow: rgb(71, 66, 66) 0px 0px 20px 1px;
+    position: sticky;
+    border-radius: 100px;
 }
 
-.title_box {
+.menu{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    text-decoration: underline;
+    padding: 0;
+}
+
+#title_box {
     margin: 0 auto;
-    border: 1px solid red;
-    
+    position: relative;
+    top: 100px;
 }
 
 #title_blur {
     width: 600px;
-    border: 1px solid red;
 }
 
 #search_container {
     display: flex;
-    height: 100px;
     position: relative;
     justify-content: center;
-
+    top: 150px;
 }
 
-.search_bar {
-    
+#search_input{
+    padding: 10px;
+    border: 1px solid #ff0000;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 200px;
 }
 
-.search_button {
-    width: auto;
+#search_button{
+    padding: 10px 15px;
+    border: 1px solid #ff0000;
+    border-radius: 0 5px 5px 0;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    outline: none;
 }
 
-.dropdown-container {
+#search_button:hover {
+    background-color: #f5a7a7;
+}
+
+.info_container{
+    color: rgb(0, 0, 0);
+    top: 250px;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    color: aliceblue;
+    column-gap: 10px;
+    align-items: flex-start;
+    height: 350px;
+    padding: 20px;
+    width: 700px;
 }
 
-.dropdown-btn{
-    display: none;
+.infobox1{
+    background-color: rgb(255, 255, 255);
+    flex: 1;
+    height: 300px;
+    border-radius: 5%;
+    padding: 10px;
 }
 
-.dropdown-menu {
-    display: flex;
-    justify-content:space-around;
+.infobox1 h1{
+    color: rgb(230, 42, 42);
+    font-size: 50px;
+    margin: 0;
+    font-weight: 900;
+}
 
+.infobox1 p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.infobox2{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    flex: 0 0 25%;
+    align-self: flex-start;
+    height: 100px;
+    border-radius: 10%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
 }
 
 @media screen and (max-width: 768px){
     #title_blur {
         width: 400px;
         margin-top: 40px;
-
-
-    }
-    
-    /* Stile per il contenitore del menu a tendina */
-.dropdown-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    }
-
-/* Stile per il pulsante del menu a tendina */
-.dropdown-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    display: block;
-    
-}
-
-/* Stile per le linee del pulsante */
-.line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px auto;
-}
-
-/* Stile per il menu a tendina */
-.dropdown-menu {
-    display: none;
-    position: fixed;
-    top: 50px;
-    background-color: #ee3434;
-    width: 100vh;
-    justify-content: start;
-}
-
-/* Stile per mostrare il menu a tendina */
-.dropdown-menu.show {
-    display: block;
-}
-    
-}
+    }}
