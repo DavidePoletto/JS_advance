@@ -1,11 +1,21 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: #F1F0F2;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #big_img {
+
         position: absolute;
         top: 0;
         left: 0;
@@ -13,22 +23,23 @@ body {
         height: 100%;
         object-fit: cover;
         z-index: 0;
-        filter: brightness(80%);
     }
  
 #container {
     width: 100%;
     height: 100vh;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
     /* 
     background-color: rgba(29, 23, 23, 0.9);
     */
 }
 
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     z-index: 101;
@@ -36,7 +47,7 @@ body {
 }
 
 .circle {
-    color: #FF3131;
+    color: #088C37;
     width: 150px;
     position: relative;
     display: inline-block;
@@ -58,7 +69,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: #FF3131;
+    background: #3F3F40;
     z-index: 100;
     transition: .3s;
     transform: translateX(-100%);
@@ -69,7 +80,7 @@ body {
 }
 
 .menu {
-    color: white;
+    color: #F1F0F2;
     list-style: none;
     text-decoration: underline;
     padding: 60px;
@@ -80,7 +91,7 @@ body {
     margin: 0 auto;
     top: 20px;
     left: 20px;
-    position: relative;
+    position: absolute;
     
 }
 
@@ -91,18 +102,22 @@ body {
     position: relative;
     top: 250px;
     text-align: center;
+    
 }
 
 .title_box h1 {
     font-size: 60px;
     margin: 0;
     font-weight: 900;
+    color: #3F3F40;
+    
 }
 
 .title_box p {
-    font-size: 20px;
+    font-size: 22px;
     margin: 10px;
-    color: rgb(104, 101, 101);
+    color: #E0A629;
+    
 }
 
 #search_container {
@@ -110,6 +125,7 @@ body {
     position: relative;
     justify-content: center;
     top: 300px;
+    
 }
 
 #search_input{
@@ -118,59 +134,105 @@ body {
     outline: none;
     width: 400px;
     height: 50px;
-    color: #050505;
+    color: #000000;
     font-size: 20px;
     text-align: center;
 }
 
-.info_container{
-    color: rgb(0, 0, 0);
-    top: 250px;
-    position: relative;
-    display: flex;
-    column-gap: 10px;
-    align-items: flex-start;
-    height: 350px;
-    padding: 20px;
-    width: 700px;
+#search_input:focus {
+    border: 2px solid #088C37;
+    box-shadow: 0px 0px 15px 0px;
+    transition: 0.2s;
 }
 
-.infobox1{
-    background-color: rgb(255, 255, 255);
-    flex: 1;
-    height: 300px;
-    border-radius: 5%;
-    padding: 10px;
-}
-
-.infobox1 h1{
-    color: rgb(230, 42, 42);
+.title_results h2 {
     font-size: 50px;
-    margin: 0;
+    font-family: "Roboto", sans-serif;
     font-weight: 900;
+    color: #3F3F40;
 }
 
-.infobox1 p{
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
+#results {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 10em;
+    row-gap: 8em;
+    width: 70%;
+    background-color: #fff;
+    padding: 80px;
 }
 
-.infobox2{
-    background-color: rgb(255, 0, 0);
-    color: white;
-    flex: 0 0 25%;
-    align-self: flex-start;
-    height: 100px;
-    border-radius: 10%;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
+.book {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 0px #686868;
+    border: 2px solid #3F3F40;
+    border-radius: 2%;
+    text-align: center;
+    filter: brightness(70%);
+}
+
+.book img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.book h2 {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #D9A404;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    width: 350px;
+}
+
+.book p {
+    position: absolute;
+    font-size: 1rem;
+    color: #b38602;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    width: 300px;
+    margin-top: 90px;
 }
 
 @media screen and (max-width: 768px){
-    #title_blur {
-        width: 400px;
-        margin-top: 40px;
-    }}
+    .title_box h1 {
+        font-size: 30px;
+    }
+
+    .title_box {
+        top: 400px;
+    }
+
+    .title_box p {
+        font-size: 15px;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    .circle {
+        width: 100px;
+    }
+
+    #big_img {
+        position: fixed;
+    }
+
+    body {
+        background-color: #c9cdd1;
+    }
+
+
+
+    }
