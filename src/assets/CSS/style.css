@@ -188,7 +188,7 @@ body {
 .book h2 {
     position: absolute;
     font-size: 1.5rem;
-    color: #D9A404;
+    color: #ffffff;
     z-index: 10;
     transition: all 0.3s ease-in-out;
     width: 350px;
@@ -197,7 +197,7 @@ body {
 .book p {
     position: absolute;
     font-size: 1rem;
-    color: #b38602;
+    color: #ffffff;
     z-index: 10;
     transition: all 0.3s ease-in-out;
     width: 300px;
