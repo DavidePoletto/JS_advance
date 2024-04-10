@@ -122,27 +122,30 @@ body {
 
 #search_container {
     display: flex;
-    position: relative;
     justify-content: center;
+    align-items: center;
     top: 300px;
-    
+    position: relative;
+    padding: 14px;
+    width: min-content;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: 1px solid #000000;
+}
+
+.material-symbols-outlined {
+    background-color: #F1F0F2;
+    color: #3F3F40;
+    cursor: pointer;
 }
 
 #search_input{
-    padding: 10px;
-    border-radius: 50px;
-    outline: none;
-    width: 400px;
-    height: 50px;
-    color: #000000;
     font-size: 20px;
-    text-align: center;
-}
-
-#search_input:focus {
-    border: 2px solid #088C37;
-    box-shadow: 0px 0px 15px 0px;
-    transition: 0.2s;
+    border: none;
+    outline: none;
+    padding-left: 14px;
+    color: #3F3F40;
+    background-color: #F1F0F2;
 }
 
 .title_results h2 {
@@ -176,32 +179,90 @@ body {
     border: 2px solid #3F3F40;
     border-radius: 2%;
     text-align: center;
-    filter: brightness(70%);
+    color: #E0A629;
 }
 
 .book img{
     width: 100%;
     height: 100%;
     transition: all 0.3s ease-in-out;
+    filter: brightness(0.7);
 }
 
 .book h2 {
     position: absolute;
     font-size: 1.5rem;
-    color: #ffffff;
     z-index: 10;
     transition: all 0.3s ease-in-out;
     width: 350px;
+    opacity: 0;
 }
 
 .book p {
     position: absolute;
     font-size: 1rem;
-    color: #ffffff;
     z-index: 10;
     transition: all 0.3s ease-in-out;
     width: 300px;
     margin-top: 90px;
+    opacity: 0;
+}
+
+.book button {
+    position: absolute;
+    z-index: 10;
+    margin-top: 200px;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #E0A629;
+    color: #3F3F40;
+    opacity: 0;
+}
+
+.book button:hover{
+    background-color: #8a6514;
+    color: #ffffff;
+    transition: 0.1s;
+}
+
+#loadMoreBtn {
+    cursor: pointer;
+    padding: 4px 14px 4px 14px;
+    font-size: 16px;
+    background-color: #F1F0F2;
+    margin: 30px 0px 30px 0px;
+    color: #E0A629;
+    border: none;
+    font-family: 'Roboto', 'san-serif';
+    font-weight: 600;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: 1000;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+::-webkit-scrollbar {
+    width: 0;
 }
 
 @media screen and (max-width: 768px){

@@ -19,7 +19,7 @@ window.addEventListener('load', setBackgroundImage);
 window.addEventListener('resize', setBackgroundImage);
 
 function searchBooks(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.type === "click") {
         const searchQuery = document.getElementById('search_input').value;
         const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=4`;
 
@@ -46,8 +46,12 @@ function searchBooks(event) {
 
                     // Crea un elemento <p> per l'autore del libro
                     const authorElement = document.createElement('p');
-                    authorElement.textContent = `Author: ${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                    authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
                     bookDiv.appendChild(authorElement);
+
+                    const showMore = document.createElement('button');
+                    showMore.textContent = 'description';
+                    bookDiv.appendChild(showMore);
 
                     if (book.cover_i) {
                         const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
@@ -62,21 +66,27 @@ function searchBooks(event) {
                     $(document).on('mouseenter', '.book', function() {
                         $(this).find('img').css({
                             transform: 'scale(1.1)',
-                            filter: 'brightness(0.7)'
+                            filter: 'brightness(0.5)'
                         });
-                        $(this).find('h2, p').css({
+                        $(this).find('h2, p, button').css({
                             opacity: 1
                         });
                     }).on('mouseleave', '.book', function() {
                         $(this).find('img').css({
                             transform: 'scale(1)',
-                            filter: 'brightness(1)'
+                            filter: 'brightness(0.7)'
                         });
-                        $(this).find('h2, p').css({
+                        $(this).find('h2, p, button').css({
                             opacity: 0
                         });
                     });
                 });
+
+                 // Ottieni l'elemento della sezione dei risultati
+                 const resultsSection = document.getElementById('results');
+
+                 // Scorrere la pagina fino alla sezione dei risultati
+                 resultsSection.scrollIntoView({ behavior: 'smooth' });
 
                 
             },
@@ -114,8 +124,13 @@ function loadMoreBooks() {
                     bookDiv.appendChild(titleElement);
 
                     const authorElement = document.createElement('p');
-                    authorElement.textContent = `Author: ${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                    authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
                     bookDiv.appendChild(authorElement);
+
+                    const showMore = document.createElement('button');
+                    showMore.textContent = 'Descrizione';
+                    bookDiv.appendChild(showMore);
+
 
                     if (book.cover_i) {
                         const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
@@ -137,6 +152,5 @@ function loadMoreBooks() {
 
 // Aggiungi il listener per l'evento "keypress" all'input di ricerca
 document.getElementById('search_input').addEventListener('keypress', searchBooks);
-
-
+document.getElementById('search_icon').addEventListener('click', searchBooks);
 document.getElementById('loadMoreBtn').addEventListener('click', loadMoreBooks);
