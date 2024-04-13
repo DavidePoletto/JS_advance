@@ -17,7 +17,7 @@ function searchBooks(event) {
         showLoadingIndicator();
 
         const searchQuery = document.getElementById('search_input').value;
-        const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=4`;
+        const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=8`;
 
         // Effettua una richiesta AJAX alle API di Open Library
         $.ajax({
@@ -66,13 +66,30 @@ function searchBooks(event) {
                             
                                 const description = document.createElement('p');
                                 description.textContent = bookData.description ? bookData.description.value : 'No description available';
-                                
-                                    if (bookData.description && bookData.description.value) {
-                                    description.textContent = bookData.description.value;
-                                    } else {
-                                    description.textContent = 'No description available';
+                                console.log("Descrizione del libro:", description.textContent);
+
+                                if (bookData.description && bookData.description.value) {
+                                    // Rimuovi le parti aggiuntive dalla descrizione
+                                    let descriptionText = bookData.description.value;
+                                    const delimiterStart = '----------';
+                                    const delimiterEnd = '[1]';
+                                    let startIndex = descriptionText.indexOf(delimiterStart);
+                                    let endIndex = descriptionText.indexOf(delimiterEnd);
+                                    
+                                    if (startIndex !== -1 && endIndex !== -1) {
+                                        descriptionText = descriptionText.substring(0, startIndex).trim();
                                     }
 
+                                    startIndex = descriptionText.indexOf(delimiterStart);
+                                    if (startIndex !== -1) {
+                                        descriptionText = descriptionText.substring(0, startIndex).trim();
+                                    }
+
+                                    description.textContent = descriptionText;
+                                } else {
+                                    description.textContent = 'No description available';
+                                }
+                                
                                 backgroundDescription.appendChild(description);
                                 description.classList.add('description');
 
@@ -184,7 +201,7 @@ function loadMoreBooks() {
                     bookDiv.appendChild(authorElement);
 
                     const showMore = document.createElement('button');
-                    showMore.textContent = 'Descrizione';
+                    showMore.textContent = 'Description';
                     showMore.addEventListener('click', function() {
                         const bookUrl = `https://openlibrary.org${book.key}.json`;
                         $.ajax({
@@ -203,11 +220,25 @@ function loadMoreBooks() {
                                 description.textContent = bookData.description ? bookData.description.value : 'No description available';
 
                                 if (bookData.description && bookData.description.value) {
-                                    description.textContent = bookData.description.value;
-                                    } else {
-                                    description.textContent = 'No description available';
+                                    // Rimuovi la parte "Also contained in" dalla descrizione
+                                    const descriptionText = bookData.description.value;
+                                    const delimiterStart = '----------';
+                                    const delimiterEnd = 'Also contained in:';
+                                    const startIndex = descriptionText.indexOf(delimiterStart);
+                                    let endIndex = descriptionText.indexOf(delimiterEnd);
+                                    
+                                    if (endIndex === -1) {
+                                        endIndex = descriptionText.length;
                                     }
 
+                                    if (startIndex !== -1 && endIndex !== -1) {
+                                        description.textContent = descriptionText.substring(startIndex + delimiterStart.length, endIndex).trim();
+                                    } else {
+                                        description.textContent = descriptionText;
+                                    }
+                                } else {
+                                    description.textContent = 'No description available';
+                                }
                                 backgroundDescription.appendChild(description);
                                 description.classList.add('description');
 

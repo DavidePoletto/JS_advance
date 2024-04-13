@@ -8,10 +8,6 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #big_img {
@@ -47,7 +43,6 @@ body {
 }
 
 .circle {
-    color: #088C37;
     width: 150px;
     position: relative;
     display: inline-block;
@@ -82,9 +77,12 @@ body {
 .menu {
     color: #F1F0F2;
     list-style: none;
-    text-decoration: underline;
     padding: 60px;
     font-size: 50px;
+}
+
+#ol {
+    color: #F1F0F2;
 }
 
 #logo_box {
@@ -172,6 +170,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     color: #3F3F40;
+    text-align: center;
 }
 
 #results {
@@ -181,9 +180,8 @@ body {
     flex-wrap: wrap;
     column-gap: 10em;
     row-gap: 8em;
-    width: 70%;
     background-color: #fff;
-    padding: 80px;
+    
 }
 
 .book {
@@ -252,7 +250,7 @@ body {
 
 .bckDes {
     position: absolute;
-    border: 1px solid red;
+    border: 2px solid #E0A629;
     background-color: #3F3F40;
     transition: 0.2s;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
@@ -262,8 +260,8 @@ body {
 }
 
 .description {
-    width: 390px;
-    height: 490px;
+    width: 380px;
+    height: 480px;
     color: #E0A629;
     margin: 0;
     padding: 10px;
@@ -277,7 +275,6 @@ body {
     position: absolute;
     bottom: 10px;
     left: 180px;
-    
 }
 
 #loadMoreBtn {
@@ -290,6 +287,10 @@ body {
     border: none;
     font-family: 'Roboto', 'san-serif';
     font-weight: 600;
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -301,5 +302,6 @@ body {
 
 ::-webkit-scrollbar {
     width: 0;
+
 }
 
