@@ -139,6 +139,21 @@ body {
     cursor: pointer;
 }
 
+.box_loadingIndicator {
+    width: 10px;
+    height: 10px;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: spin 1s linear infinite;
+    z-index: 1000; 
+  }
+
 #search_input{
     font-size: 20px;
     border: none;
@@ -146,6 +161,10 @@ body {
     padding-left: 14px;
     color: #3F3F40;
     background-color: #F1F0F2;
+}
+
+#search_input::after {
+    background-color: #F1F0F2; 
 }
 
 .title_results h2 {
@@ -180,6 +199,7 @@ body {
     border-radius: 2%;
     text-align: center;
     color: #E0A629;
+    background-color: #3F3F40;
 }
 
 .book img{
@@ -198,7 +218,7 @@ body {
     opacity: 0;
 }
 
-.book p {
+.author {
     position: absolute;
     font-size: 1rem;
     z-index: 10;
@@ -215,6 +235,7 @@ body {
     transition: all 0.3s ease-in-out;
     padding: 10px;
     font-size: large;
+    font-weight: 500;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -229,6 +250,36 @@ body {
     transition: 0.1s;
 }
 
+.bckDes {
+    position: absolute;
+    border: 1px solid red;
+    background-color: #3F3F40;
+    transition: 0.2s;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 2%;
+}
+
+.description {
+    width: 390px;
+    height: 490px;
+    color: #E0A629;
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    transition: 0.2s;
+} 
+
+.close {
+    color: #ffffff;
+    position: absolute;
+    bottom: 10px;
+    left: 180px;
+    
+}
+
 #loadMoreBtn {
     cursor: pointer;
     padding: 4px 14px 4px 14px;
@@ -241,20 +292,7 @@ body {
     font-weight: 600;
 }
 
-.loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -25px;
-    margin-left: -25px;
-    z-index: 1000;
-  }
+
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -265,35 +303,3 @@ body {
     width: 0;
 }
 
-@media screen and (max-width: 768px){
-    .title_box h1 {
-        font-size: 30px;
-    }
-
-    .title_box {
-        top: 400px;
-    }
-
-    .title_box p {
-        font-size: 15px;
-    }
-
-    #logo {
-        width: 150px;
-    }
-
-    .circle {
-        width: 100px;
-    }
-
-    #big_img {
-        position: fixed;
-    }
-
-    body {
-        background-color: #c9cdd1;
-    }
-
-
-
-    }

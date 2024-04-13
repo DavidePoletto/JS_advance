@@ -4,22 +4,18 @@ $(document).ready(function(){
     });
 });
 
-const bigImg = document.getElementById('big_img');
+function showLoadingIndicator() {
+    document.getElementById('loadingIndicator').classList.add('loader');
+}
 
-function setBackgroundImage() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth <= 767) {
-        document.querySelector('#big_img').src = "assets/IMG/sfondosmarthphone.png"
-    } else {
-        document.querySelector('#big_img').src = "assets/IMG/sfondo1.png"
-    }
-};
-
-window.addEventListener('load', setBackgroundImage);
-window.addEventListener('resize', setBackgroundImage);
+function hideLoadingIndicator() {
+    document.getElementById('loadingIndicator').classList.remove('loader');
+}
 
 function searchBooks(event) {
     if (event.key === "Enter" || event.type === "click") {
+        showLoadingIndicator();
+
         const searchQuery = document.getElementById('search_input').value;
         const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=4`;
 
@@ -31,6 +27,8 @@ function searchBooks(event) {
                 // Rimuovi eventuali risultati precedenti
                 const resultsContainer = document.getElementById('results');
                 resultsContainer.innerHTML = '';
+                document.getElementById('loadingIndicator').classList.remove('loader');
+
 
                 // Elabora la risposta
                 const books = response.docs;
@@ -47,11 +45,63 @@ function searchBooks(event) {
                     // Crea un elemento <p> per l'autore del libro
                     const authorElement = document.createElement('p');
                     authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                    authorElement.classList.add('author');
                     bookDiv.appendChild(authorElement);
 
                     const showMore = document.createElement('button');
-                    showMore.textContent = 'description';
-                    bookDiv.appendChild(showMore);
+                    showMore.textContent = 'Description';
+                    showMore.addEventListener('click', function() {
+                        const bookUrl = `https://openlibrary.org${book.key}.json`;
+                        $.ajax({
+                            url: bookUrl,
+                            method: 'GET',
+                            success: function(bookData) {
+                                const backgroundDescription = document.createElement('div');
+                                bookDiv.appendChild(backgroundDescription);
+                                backgroundDescription.classList.add('bckDes');
+
+                                titleElement.remove();
+                                authorElement.remove();
+                                showMore.remove();
+                            
+                                const description = document.createElement('p');
+                                description.textContent = bookData.description ? bookData.description.value : 'No description available';
+                                
+                                    if (bookData.description && bookData.description.value) {
+                                    description.textContent = bookData.description.value;
+                                    } else {
+                                    description.textContent = 'No description available';
+                                    }
+
+                                backgroundDescription.appendChild(description);
+                                description.classList.add('description');
+
+                                const closeIcon = document.createElement('span');
+                                closeIcon.textContent = 'CLOSE';
+                                closeIcon.classList.add('close');
+                                backgroundDescription.appendChild(closeIcon);
+
+                                closeIcon.addEventListener('click', function() {
+                                    backgroundDescription.style.display = 'none';
+                                    bookDiv.appendChild(titleElement);
+                                    bookDiv.appendChild(authorElement);
+                                    bookDiv.appendChild(showMore);
+                                });
+
+                            },
+                            error: function(error) {
+                                console.log("Si è verificato un errore nella richiesta della descrizione:", error);
+                                alert('Si è verificato un errore nella richiesta della descrizione.');
+
+                                closeIcon.addEventListener('click', function() {
+                                    backgroundDescription.style.display = 'none';
+                                    
+                                });
+                            }
+                        });
+                    });
+                    bookDiv.appendChild(showMore);0
+                    
 
                     if (book.cover_i) {
                         const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
@@ -68,7 +118,7 @@ function searchBooks(event) {
                             transform: 'scale(1.1)',
                             filter: 'brightness(0.5)'
                         });
-                        $(this).find('h2, p, button').css({
+                        $(this).find('h2, p, button, span').css({
                             opacity: 1
                         });
                     }).on('mouseleave', '.book', function() {
@@ -76,11 +126,13 @@ function searchBooks(event) {
                             transform: 'scale(1)',
                             filter: 'brightness(0.7)'
                         });
-                        $(this).find('h2, p, button').css({
+                        $(this).find('h2, p, button, span').css({
                             opacity: 0
                         });
                     });
                 });
+
+                hideLoadingIndicator();
 
                  // Ottieni l'elemento della sezione dei risultati
                  const resultsSection = document.getElementById('results');
@@ -92,6 +144,9 @@ function searchBooks(event) {
             },
             error: function(error) {
                 console.log("Si è verificato un errore:", error);
+                hideLoadingIndicator();
+                alert('Ci dispiace, non è stato trovato nessun libro.')
+
             }
         });
     }
@@ -125,12 +180,62 @@ function loadMoreBooks() {
 
                     const authorElement = document.createElement('p');
                     authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                    authorElement.classList.add('author');
                     bookDiv.appendChild(authorElement);
 
                     const showMore = document.createElement('button');
                     showMore.textContent = 'Descrizione';
-                    bookDiv.appendChild(showMore);
+                    showMore.addEventListener('click', function() {
+                        const bookUrl = `https://openlibrary.org${book.key}.json`;
+                        $.ajax({
+                            url: bookUrl,
+                            method: 'GET',
+                            success: function(bookData) {
+                                const backgroundDescription = document.createElement('div');
+                                bookDiv.appendChild(backgroundDescription);
+                                backgroundDescription.classList.add('bckDes');
 
+                                titleElement.remove();
+                                authorElement.remove();
+                                showMore.remove();
+                            
+                                const description = document.createElement('p');
+                                description.textContent = bookData.description ? bookData.description.value : 'No description available';
+
+                                if (bookData.description && bookData.description.value) {
+                                    description.textContent = bookData.description.value;
+                                    } else {
+                                    description.textContent = 'No description available';
+                                    }
+
+                                backgroundDescription.appendChild(description);
+                                description.classList.add('description');
+
+                                const closeIcon = document.createElement('span');
+                                closeIcon.textContent = 'CLOSE';
+                                closeIcon.classList.add('close');
+                                backgroundDescription.appendChild(closeIcon);
+
+                                closeIcon.addEventListener('click', function() {
+                                    backgroundDescription.style.display = 'none';
+                                    bookDiv.appendChild(titleElement);
+                                    bookDiv.appendChild(authorElement);
+                                    bookDiv.appendChild(showMore);
+                                });
+
+                            },
+                            error: function(error) {
+                                console.log("Si è verificato un errore nella richiesta della descrizione:", error);
+                                alert('Si è verificato un errore nella richiesta della descrizione.');
+
+                                closeIcon.addEventListener('click', function() {
+                                    backgroundDescription.style.display = 'none';
+                                    
+                                });
+                            }
+                        });
+                    });
+                    bookDiv.appendChild(showMore);
 
                     if (book.cover_i) {
                         const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
