@@ -1,7 +1,11 @@
+::-webkit-scrollbar {
+    width: 0;
+
+}
+
 html{
     scroll-behavior: smooth;
 }
-
 
 body {
     background-color: #F1F0F2;
@@ -11,16 +15,15 @@ body {
 }
 
 #big_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 0;
-    }
- 
 #container {
     width: 100%;
     height: 100vh;
@@ -29,11 +32,9 @@ body {
     left: 0;
     display: flex;
     flex-direction: column;
-    /* 
-    background-color: rgba(29, 23, 23, 0.9);
-    */
 }
 
+/* HIDDEN MENU */
 .navbar {
     position: absolute;
     top: 10px;
@@ -46,7 +47,11 @@ body {
     width: 150px;
     position: relative;
     display: inline-block;
-    z-index: 0;
+    z-index: 1;
+}
+
+.circleoff {
+    visibility: hidden;
 }
 
 .icon_bar {
@@ -58,13 +63,18 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.icon_baroff {
+    color: #f70909;
+}
+
 .hide_menu {
     width: 100%;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    background: #3F3F40;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    backdrop-filter: blur(15px);
     z-index: 100;
     transition: .3s;
     transform: translateX(-100%);
@@ -75,24 +85,80 @@ body {
 }
 
 .menu {
-    color: #F1F0F2;
+    color: #3F3F40;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    height: 100vh;
+    align-items: center;
+}
+
+.information {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 700px;
+    font-weight: 600;
+}
+
+.information button {
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #3F3F40;
+    color: #E0A629;
+    border: none;
+    font-weight: 600;
+}
+
+.information h2 {
+    margin: 0;
+    font-size: 80px;
+    color: #424242;
+    font-weight: 900;
+    text-decoration: underline 5px;
+}
+
+.information p {
+    font-size: 30px;
+    margin: 0px;
+}
+
+.menu a {
+    color: #E0A629;
+}
+
+.link {
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    width: 100vh;
+}
+
+.link ul {
     list-style: none;
-    padding: 60px;
-    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
 }
 
-#ol {
-    color: #F1F0F2;
+#italian {
+    display: none;
 }
 
+/* LOGO */
 #logo_box {
     margin: 0 auto;
     top: 20px;
     left: 20px;
     position: absolute;
-    
 }
 
+/* MAIN TITLE */
 .title_box {
     display: flex;
     flex-direction: column;
@@ -100,7 +166,6 @@ body {
     position: relative;
     top: 250px;
     text-align: center;
-    
 }
 
 .title_box h1 {
@@ -108,16 +173,15 @@ body {
     margin: 0;
     font-weight: 900;
     color: #3F3F40;
-    
 }
 
 .title_box p {
     font-size: 22px;
     margin: 10px;
     color: #E0A629;
-    
 }
 
+/* SEARCH BAR */
 #search_container {
     display: flex;
     justify-content: center;
@@ -165,7 +229,8 @@ body {
     background-color: #F1F0F2; 
 }
 
-.title_results h2 {
+/* RESULTS TITLE */
+#title_results h2 {
     font-size: 50px;
     font-family: "Roboto", sans-serif;
     font-weight: 900;
@@ -181,9 +246,10 @@ body {
     column-gap: 10em;
     row-gap: 8em;
     background-color: #fff;
-    
+    padding: 40px 0px 40px 0px;
 }
 
+/* BOOKS SECTION */
 .book {
     width: 400px;
     height: 500px;
@@ -224,6 +290,7 @@ body {
     width: 300px;
     margin-top: 90px;
     opacity: 0;
+    color: #9c6e0a;
 }
 
 .book button {
@@ -277,6 +344,7 @@ body {
     left: 180px;
 }
 
+/* BUTTONS */
 #loadMoreBtn {
     cursor: pointer;
     padding: 4px 14px 4px 14px;
@@ -293,15 +361,24 @@ body {
     transform: translate(-50%, -50%);
 }
 
+#goUpBtn {
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', 'san-serif';
+    font-weight: 600;
+    position: absolute;
+    right: 30px;
+    padding-bottom: 20px;
+}
 
-  
+#goUpBtn a {
+    text-decoration: none;
+    color: #3F3F40;
+}
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
 
-::-webkit-scrollbar {
-    width: 0;
-
-}
 

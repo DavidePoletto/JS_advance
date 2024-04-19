@@ -1,8 +1,21 @@
 $(document).ready(function(){
     $( '.navbar' ).click(function(){
         $( '.hide_menu' ).toggleClass( 'wide' );
+        $( '.circle').toggleClass( 'circleoff');
+        $( '.icon_bar').toggleClass( 'icon_baroff');
     });
 });
+
+function translateToItalian() {
+    document.getElementById('english').style.display = 'none';
+    document.getElementById('italian').style.display = 'block';
+}
+
+function translateToEnglish() {
+    document.getElementById('italian').style.display = 'none';
+    document.getElementById('english').style.display = 'block';
+}
+
 
 function showLoadingIndicator() {
     document.getElementById('loadingIndicator').classList.add('loader');
@@ -19,57 +32,49 @@ function searchBooks(event) {
         const searchQuery = document.getElementById('search_input').value;
         const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=8`;
 
-        // Effettua una richiesta AJAX alle API di Open Library
         $.ajax({
             url: apiUrl,
             method: 'GET',
-            success: function(response) {
-                // Rimuovi eventuali risultati precedenti
-                const resultsContainer = document.getElementById('results');
-                resultsContainer.innerHTML = '';
-                document.getElementById('loadingIndicator').classList.remove('loader');
+                success: function(response) {
+                    const resultsContainer = document.getElementById('results');
+                    resultsContainer.innerHTML = '';
+                    document.getElementById('loadingIndicator').classList.remove('loader');
 
+                    const books = response.docs;
+                    books.forEach(book => {
+                        const bookDiv = document.createElement('div');
+                        bookDiv.classList.add('book');
 
-                // Elabora la risposta
-                const books = response.docs;
-                books.forEach(book => {
-                    // Crea un elemento <div> per ogni libro
-                    const bookDiv = document.createElement('div');
-                    bookDiv.classList.add('book');
+                        const titleElement = document.createElement('h2');
+                        titleElement.textContent = book.title;
+                        bookDiv.appendChild(titleElement);
 
-                    // Crea un elemento <h2> per il titolo del libro
-                    const titleElement = document.createElement('h2');
-                    titleElement.textContent = book.title;
-                    bookDiv.appendChild(titleElement);
-
-                    // Crea un elemento <p> per l'autore del libro
                     const authorElement = document.createElement('p');
-                    authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
-                    authorElement.classList.add('author');
-                    bookDiv.appendChild(authorElement);
+                        authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                        authorElement.classList.add('author');
+                        bookDiv.appendChild(authorElement);
 
                     const showMore = document.createElement('button');
-                    showMore.textContent = 'Description';
-                    showMore.addEventListener('click', function() {
-                        const bookUrl = `https://openlibrary.org${book.key}.json`;
+                        showMore.textContent = 'Description';
+                        showMore.addEventListener('click', function() {
+                    const bookUrl = `https://openlibrary.org${book.key}.json`;
                         $.ajax({
                             url: bookUrl,
                             method: 'GET',
                             success: function(bookData) {
                                 const backgroundDescription = document.createElement('div');
-                                bookDiv.appendChild(backgroundDescription);
-                                backgroundDescription.classList.add('bckDes');
+                                    bookDiv.appendChild(backgroundDescription);
+                                    backgroundDescription.classList.add('bckDes');
 
-                                titleElement.remove();
-                                authorElement.remove();
-                                showMore.remove();
+                                    titleElement.remove();
+                                    authorElement.remove();
+                                    showMore.remove();
                             
                                 const description = document.createElement('p');
-                                description.textContent = bookData.description ? bookData.description.value : 'No description available';
-                                console.log("Descrizione del libro:", description.textContent);
+                                    description.textContent = bookData.description ? bookData.description.value : 'No description available';
+                                    console.log("Descrizione del libro:", description.textContent);
 
                                 if (bookData.description && bookData.description.value) {
-                                    // Rimuovi le parti aggiuntive dalla descrizione
                                     let descriptionText = bookData.description.value;
                                     const delimiterStart = '----------';
                                     const delimiterEnd = '[1]';
@@ -94,11 +99,11 @@ function searchBooks(event) {
                                 description.classList.add('description');
 
                                 const closeIcon = document.createElement('span');
-                                closeIcon.textContent = 'CLOSE';
-                                closeIcon.classList.add('close');
-                                backgroundDescription.appendChild(closeIcon);
+                                    closeIcon.textContent = 'CLOSE';
+                                    closeIcon.classList.add('close');
+                                    backgroundDescription.appendChild(closeIcon);
 
-                                closeIcon.addEventListener('click', function() {
+                                    closeIcon.addEventListener('click', function() {
                                     backgroundDescription.style.display = 'none';
                                     bookDiv.appendChild(titleElement);
                                     bookDiv.appendChild(authorElement);
@@ -127,7 +132,6 @@ function searchBooks(event) {
                         bookDiv.appendChild(coverImg);
                     }
 
-                    // Aggiungi il libro all'elemento dei risultati
                     resultsContainer.appendChild(bookDiv);
 
                     $(document).on('mouseenter', '.book', function() {
@@ -150,21 +154,14 @@ function searchBooks(event) {
                 });
 
                 hideLoadingIndicator();
-
-                 // Ottieni l'elemento della sezione dei risultati
-                 const resultsSection = document.getElementById('results');
-
-                 // Scorrere la pagina fino alla sezione dei risultati
-                 resultsSection.scrollIntoView({ behavior: 'smooth' });
-
-                
-            },
-            error: function(error) {
-                console.log("Si è verificato un errore:", error);
-                hideLoadingIndicator();
-                alert('Ci dispiace, non è stato trovato nessun libro.')
-
-            }
+                    const resultsSection = document.getElementById('title_results');
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+                },
+                error: function(error) {
+                    console.log("Si è verificato un errore:", error);
+                    hideLoadingIndicator();
+                    alert('Ci dispiace, non è stato trovato nessun libro.')
+                }
         });
     }
 }
@@ -177,7 +174,6 @@ function loadMoreBooks() {
     const bottomOffset = 20;
 
     if (pageOffset > lastBookOffset - bottomOffset) {
-        // Effettua un'altra richiesta per caricare ulteriori libri...
         const searchQuery = document.getElementById('search_input').value;
         const apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=4&offset=${resultsContainer.children.length}`;
 
@@ -186,41 +182,39 @@ function loadMoreBooks() {
             method: 'GET',
             success: function(response) {
                 const books = response.docs;
-                books.forEach(book => {
-                    // Crea e aggiungi elementi per visualizzare i libri...
+                    books.forEach(book => {
                     const bookDiv = document.createElement('div');
-                    bookDiv.classList.add('book');
+                        bookDiv.classList.add('book');
 
                     const titleElement = document.createElement('h2');
-                    titleElement.textContent = book.title;
-                    bookDiv.appendChild(titleElement);
+                        titleElement.textContent = book.title;
+                        bookDiv.appendChild(titleElement);
 
                     const authorElement = document.createElement('p');
-                    authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
-                    authorElement.classList.add('author');
-                    bookDiv.appendChild(authorElement);
+                        authorElement.textContent = `${book.author_name ? book.author_name.join(', ') : 'Unknown'}`;
+                        authorElement.classList.add('author');
+                        bookDiv.appendChild(authorElement);
 
                     const showMore = document.createElement('button');
-                    showMore.textContent = 'Description';
-                    showMore.addEventListener('click', function() {
+                        showMore.textContent = 'Description';
+                        showMore.addEventListener('click', function() {
                         const bookUrl = `https://openlibrary.org${book.key}.json`;
                         $.ajax({
                             url: bookUrl,
                             method: 'GET',
                             success: function(bookData) {
                                 const backgroundDescription = document.createElement('div');
-                                bookDiv.appendChild(backgroundDescription);
-                                backgroundDescription.classList.add('bckDes');
+                                    bookDiv.appendChild(backgroundDescription);
+                                    backgroundDescription.classList.add('bckDes');
 
-                                titleElement.remove();
-                                authorElement.remove();
-                                showMore.remove();
+                                    titleElement.remove();
+                                    authorElement.remove();
+                                    showMore.remove();
                             
                                 const description = document.createElement('p');
-                                description.textContent = bookData.description ? bookData.description.value : 'No description available';
+                                    description.textContent = bookData.description ? bookData.description.value : 'No description available';
 
                                 if (bookData.description && bookData.description.value) {
-                                    // Rimuovi la parte "Also contained in" dalla descrizione
                                     const descriptionText = bookData.description.value;
                                     const delimiterStart = '----------';
                                     const delimiterEnd = 'Also contained in:';
@@ -243,11 +237,11 @@ function loadMoreBooks() {
                                 description.classList.add('description');
 
                                 const closeIcon = document.createElement('span');
-                                closeIcon.textContent = 'CLOSE';
-                                closeIcon.classList.add('close');
-                                backgroundDescription.appendChild(closeIcon);
+                                    closeIcon.textContent = 'CLOSE';
+                                    closeIcon.classList.add('close');
+                                    backgroundDescription.appendChild(closeIcon);
 
-                                closeIcon.addEventListener('click', function() {
+                                    closeIcon.addEventListener('click', function() {
                                     backgroundDescription.style.display = 'none';
                                     bookDiv.appendChild(titleElement);
                                     bookDiv.appendChild(authorElement);
@@ -275,7 +269,6 @@ function loadMoreBooks() {
                         bookDiv.appendChild(coverImg);
                     }
 
-                    // Aggiungi il libro al container dei risultati
                     resultsContainer.appendChild(bookDiv);
                 });
             },
@@ -286,7 +279,6 @@ function loadMoreBooks() {
     }
 }
 
-// Aggiungi il listener per l'evento "keypress" all'input di ricerca
 document.getElementById('search_input').addEventListener('keypress', searchBooks);
 document.getElementById('search_icon').addEventListener('click', searchBooks);
 document.getElementById('loadMoreBtn').addEventListener('click', loadMoreBooks);
