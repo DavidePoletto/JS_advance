@@ -1,5 +1,3 @@
-import '../CSS/style.css';
-
 $(document).ready(function(){
     $( '.navbar' ).click(function(){
         $( '.hide_menu' ).toggleClass( 'wide' );
@@ -11,12 +9,12 @@ $(document).ready(function(){
 function translateToItalian() {
     document.getElementById('english').style.display = 'none';
     document.getElementById('italian').style.display = 'block';
-}
+};
 
 function translateToEnglish() {
     document.getElementById('italian').style.display = 'none';
     document.getElementById('english').style.display = 'block';
-}
+};
 
 
 function showLoadingIndicator() {
