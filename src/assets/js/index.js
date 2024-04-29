@@ -1,3 +1,5 @@
+import '../CSS/style.css'
+
 $(document).ready(function(){
     $( '.navbar' ).click(function(){
         $( '.hide_menu' ).toggleClass( 'wide' );
