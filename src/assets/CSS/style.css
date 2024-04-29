@@ -398,6 +398,14 @@ body {
     #search_container {
         top: 180px;
     }
+
+    .information h2 {
+        font-size: 40px;
+    }
+
+    .information p {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -407,5 +415,13 @@ body {
 
     #search-container {
         top: 150px;
+    }
+
+    .information h2 {
+        font-size: 30px;
+    }
+
+    .information p {
+        font-size: 20px;
     }
 }
