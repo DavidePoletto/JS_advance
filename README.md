@@ -4,28 +4,28 @@
   </a>
 </p>
 
-<h3 align="center">Sheep Counter</h3>
+<h3 align="center">Pages from the past</h3>
 
 <p align="center">"SheepCounter: Bringing a Woolly Wave of Serenity, One Click at a Time!"</p>
     <br/>
     <br/>
-    <a href="https://github.com/davidepoletto/JavaScript-Project"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
     .
-    <a href="https://github.com/davidepoletto/JavaScript-Project/issues">Report Bug</a>
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Report Bug</a>
     .
-    <a href="https://github.com/davidepoletto/JavaScript-Project/issues">Request Feature</a>
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Request Feature</a>
   </p>
 </p>
 
-![Contributors](https://img.shields.io/github/contributors/davidepoletto/JavaScript-Project?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JavaScript-Project) 
+![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance) 
 
 ## About The Project
 
-<a href="https://sheepcounterr.netlify.app/">![Screen Shot](/assets/IMG/screenshot.png)</a>
+<a href="https://pagesfromthepast.netlify.app/">![Screen Shot](/src/assets/IMG/pages.png)</a>
 
-Welcome to https://sheepcounterr.netlify.app/, the most avant-garde site for sheep counting enthusiasts! Here, counting sheep is not just a pastime, but a refined art that might change your life (or at least make you laugh a bit).
+Welcome to https://pagesfromthepast.netlify.app/, the most avant-garde site for sheep counting enthusiasts! Here, counting sheep is not just a pastime, but a refined art that might change your life (or at least make you laugh a bit).
 
 Mind-Blowing Features:
 
@@ -36,7 +36,7 @@ Advanced Sheep Counting: Our sheep counter has been trained in the finest virtua
 Sheep-Counting Showdowns: We've added a touch of competition. Share your score on social media and challenge friends to beat your record. Who can count more sheep without falling asleep?
 
 Our Motto:
-"https://sheepcounterr.netlify.app/ - Where Counting Sheep Becomes a Masterpiece!"
+"https://pagesfromthepast.netlify.app/ - Where Counting Sheep Becomes a Masterpiece!"
 
 Important Notice:
 We don't guarantee that counting sheep will put you to sleep, but we do guarantee it will make you smile!
