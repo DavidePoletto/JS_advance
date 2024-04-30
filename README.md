@@ -3,10 +3,7 @@
     <img src="/src/assets/IMG/logo5.png" alt="Logo" width="200">
   </a>
 </p>
-
-<h3 align="center">Pages from the past</h3>
-
-<p align="center">"SheepCounter: Bringing a Woolly Wave of Serenity, One Click at a Time!"</p>
+<p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
     <br/>
     <br/>
     <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
