@@ -5,7 +5,6 @@
 </p>
 <p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
     <br/>
-    <br/>
     <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
@@ -22,29 +21,25 @@
 
 <a href="https://pagesfromthepast.netlify.app/">![Screen Shot](/src/assets/IMG/pages.png)</a>
 
-Welcome to https://pagesfromthepast.netlify.app/, the most avant-garde site for sheep counting enthusiasts! Here, counting sheep is not just a pastime, but a refined art that might change your life (or at least make you laugh a bit).
+Welcome to <a href = "https://pagesfromthepast.netlify.app/">Pages from the past</a>, your online resource for exploring and searching for books of historical and cultural value. With an extensive archive of both ancient and modern works, we are committed to providing a welcoming and informative environment for readers of all genres.
 
-Mind-Blowing Features:
+Key Features:
 
-Advanced Sheep Counting: Our sheep counter has been trained in the finest virtual pastures and can count sheep faster than any human. Press the button and watch the number grow faster than a runaway sheep!
+Extensive Literary Collection: Our website offers access to a wide range of books, from literary classics to lesser-known yet equally significant works. Whether you're interested in history, philosophy, literature, or other fields, you'll surely find something of interest to explore.
+Advanced Search Tools: Thanks to our intuitive and advanced search tools, you can easily find the books you're looking for. Filter by author, title, genre, or year of publication to narrow down your search and find exactly what you need.
+Reading Enthusiast Community: Join our community of readers and share your opinions, reviews, and book recommendations. Connect with other people who share your passion for reading and discover new works to add to your reading list.
+Our Commitment: "Pages from the Past - Where History and Culture Unite through Books."
 
-"Sheep Chic" Style: Our design is more stylish than any flock of sheep. With trendy pastel colors and stylized sheep, this is your most fashionable sheep counting experience ever.
+Important Note: We are dedicated to promoting knowledge and appreciation of literature through the sharing of historically and culturally valuable works. Our goal is to provide an accessible and inclusive platform for book lovers of all ages and backgrounds.
 
-Sheep-Counting Showdowns: We've added a touch of competition. Share your score on social media and challenge friends to beat your record. Who can count more sheep without falling asleep?
-
-Our Motto:
-"https://pagesfromthepast.netlify.app/ - Where Counting Sheep Becomes a Masterpiece!"
-
-Important Notice:
-We don't guarantee that counting sheep will put you to sleep, but we do guarantee it will make you smile!
-
-Step into the magical world of sheep counting on SheepCount.com and get ready to count with style!
-
+Explore Pages from the Past today and dive into a world of knowledge, discovery, and literary beauty.
 ## Built With
 
 * [JavaScript]()
 * [HTML]()
 * [CSS]()
+* [Axios]()
+* [Webpack]()
 
 ## Roadmap
 
@@ -57,10 +52,6 @@ See the [open issues](https://github.com/davidepoletto/JavaScript-Project/issues
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/davidepoletto/JavaScript-Project/blob/main/LICENSE.md) for more information.
 
 ## Authors
 
