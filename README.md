@@ -5,13 +5,6 @@
 </p>
 <p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
     <br/>
-    <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    .
-    <a href="https://github.com/davidepoletto/JS_advance/issues">Report Bug</a>
-    .
-    <a href="https://github.com/davidepoletto/JS_advance/issues">Request Feature</a>
   </p>
 </p>
 
@@ -40,6 +33,14 @@ Explore Pages from the Past today and dive into a world of knowledge, discovery,
 * [CSS]()
 * [Axios]()
 * [Webpack]()
+
+ <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    .
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Report Bug</a>
+    .
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Request Feature</a>
 
 ## Roadmap
 
