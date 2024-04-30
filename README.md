@@ -2,13 +2,13 @@
   <a href="https://github.com/davidepoletto/JavaScript-Project">
     <img src="/src/assets/IMG/logo5.png" alt="Logo" width="200">
   </a>
-</p>
+
 <p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
   </p>
 </p>
 
-<a align-items= "center">![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance) </a>
-
+align-items= "center">![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance)
+</p>
 ## About The Project
 
 <a href="https://pagesfromthepast.netlify.app/">![Screen Shot](/src/assets/IMG/pages.png)</a>
