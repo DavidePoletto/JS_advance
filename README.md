@@ -4,7 +4,6 @@
   </a>
 </p>
 <p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
-    <br/>
   </p>
 </p>
 
