@@ -7,7 +7,7 @@
   </p>
 </p>
 
-![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance) 
+<a align-items= "center">![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance) </a>
 
 ## About The Project
 
