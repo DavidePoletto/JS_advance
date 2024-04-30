@@ -34,14 +34,6 @@ Explore Pages from the Past today and dive into a world of knowledge, discovery,
 * [Axios]()
 * [Webpack]()
 
- <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    .
-    <a href="https://github.com/davidepoletto/JS_advance/issues">Report Bug</a>
-    .
-    <a href="https://github.com/davidepoletto/JS_advance/issues">Request Feature</a>
-
 ## Roadmap
 
 See the [open issues](https://github.com/davidepoletto/JavaScript-Project/issues) for a list of proposed features (and known issues).
@@ -53,6 +45,14 @@ See the [open issues](https://github.com/davidepoletto/JavaScript-Project/issues
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+ <a href="https://github.com/davidepoletto/JS_advance"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    .
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Report Bug</a>
+    .
+    <a href="https://github.com/davidepoletto/JS_advance/issues">Request Feature</a>
 
 ## Authors
 
