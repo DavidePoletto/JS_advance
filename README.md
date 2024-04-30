@@ -6,6 +6,7 @@
 <p align="center">"Pages from the past: Dive into history, one page at a time!"</p>
   </p>
 </p>
+
 ![Contributors](https://img.shields.io/github/contributors/davidepoletto/JS_advance?color=dark-green) ![Issues](https://img.shields.io/github/issues/davidepoletto/JS_advance)
 
 ## About The Project
